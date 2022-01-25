@@ -1,9 +1,10 @@
 import 'package:b_sims/src/config/const.dart';
 import 'package:b_sims/src/config/getx/onboarding_getx.dart';
-import 'package:b_sims/src/root.dart';
 import 'package:b_sims/src/screen/home/company/company_screen.dart';
 import 'package:b_sims/src/screen/home/contact/contact_screen.dart';
 import 'package:b_sims/src/screen/home/document/document_screen.dart';
+import 'package:b_sims/src/screen/home/document/jasa/jasa_screen.dart';
+import 'package:b_sims/src/screen/home/document/kedatangan/kedatangan_screen.dart';
 import 'package:b_sims/src/screen/home/setting/setting_screen.dart';
 import 'package:b_sims/src/widget/custom_card.dart';
 import 'package:b_sims/src/widget/home_carousel.dart';
@@ -51,10 +52,69 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
   }
 
+  String _titleAppBar() {
+    switch (_currentIndex) {
+      case 0:
+        return "";
+      case 1:
+        return "Daftar Dokumen";
+      case 2:
+        return "Kontak kami";
+      case 3:
+        return "Settings";
+      default:
+        return "";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(_titleAppBar()),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text("Notifications"),
+                    content: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Colors.white,
+                      ),
+                      child: Scrollbar(
+                        child: SingleChildScrollView(
+                          physics: const BouncingScrollPhysics(),
+                          child: Column(
+                            children: List<Widget>.generate(
+                                10,
+                                (int id) => Material(
+                                      type: MaterialType.transparency,
+                                      child: ListTile(
+                                        onTap: () {},
+                                        leading: const Icon(Icons.person),
+                                        title: const Text(
+                                            "Notifikasi status nota :"),
+                                        subtitle: const Text(
+                                            "2022015398 Telah Dilakukan Verifikasi Oleh GM Komersil 2022015398"),
+                                      ),
+                                    )).toList(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            icon: const Icon(Icons.notifications),
+          )
+        ],
+      ),
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
@@ -74,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: const Text("Beranda"),
                 ),
                 ListTile(
-                  onTap: () => Get.to(const DocumentScreen()),
+                  onTap: () => Get.to(const Document()),
                   leading: const Icon(Icons.file_copy),
                   title: const Text("Daftar Permohonan PKK"),
                 ),
@@ -204,8 +264,7 @@ class Home extends StatelessWidget {
                                 onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const DocumentScreen(),
+                                    builder: (context) => const Document(),
                                   ),
                                 ),
                               ),
@@ -219,7 +278,13 @@ class Home extends StatelessWidget {
                               CustomCard(
                                 'Pengajuan kedatangan kapal',
                                 icon: Icons.anchor_outlined,
-                                onTap: () {},
+                                onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const KedatanganScreen(),
+                                  ),
+                                ),
                               ),
                               const SizedBox(
                                 width: 20,
@@ -227,7 +292,12 @@ class Home extends StatelessWidget {
                               CustomCard(
                                 'Pengajuan jasa kepelabuhan',
                                 icon: Icons.anchor_outlined,
-                                onTap: () {},
+                                onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const JasaScreen(),
+                                  ),
+                                ),
                               ),
                             ],
                           ),

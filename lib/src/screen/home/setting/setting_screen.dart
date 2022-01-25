@@ -239,7 +239,47 @@ class _SettingScreenState extends State<SettingScreen> {
                         height: 5,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (builder) {
+                                return Container(
+                                  // height: 350.0,
+                                  color: Colors.transparent,
+                                  child: Container(
+                                    height: 200,
+                                    padding: const EdgeInsets.all(10),
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10.0),
+                                            topRight: Radius.circular(10.0))),
+                                    child: GridView.count(
+                                      crossAxisCount: 4,
+                                      mainAxisSpacing: 10.0,
+                                      crossAxisSpacing: 10.0,
+                                      childAspectRatio: 1.3,
+                                      children: <Widget>[
+                                        _iconBagikan(Icons.call, "Whatsapp"),
+                                        _iconBagikan(
+                                            Icons.folder, "Salin ke folder"),
+                                        _iconBagikan(Icons.mail, "Pesan"),
+                                        _iconBagikan(
+                                            Icons.copy, "Salin ke papan clip"),
+                                        _iconBagikan(
+                                            Icons.facebook, "Facebook"),
+                                        _iconBagikan(
+                                            Icons.email_outlined, "Gmail"),
+                                        _iconBagikan(
+                                            Icons.bluetooth, "Bluetooth"),
+                                        _iconBagikan(
+                                            Icons.insert_drive_file, "Catatan"),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              });
+                        },
                         child: Row(
                           children: const [
                             Padding(
@@ -293,6 +333,30 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _iconBagikan(IconData icon, String title) {
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: () {},
+        borderRadius: BorderRadius.circular(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Icon(icon),
+              const SizedBox(height: 5),
+              Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ),
     );

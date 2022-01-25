@@ -1,5 +1,7 @@
 import 'package:b_sims/src/config/bindings/onboarding_bindings.dart';
 import 'package:b_sims/src/config/mixins.dart';
+import 'package:b_sims/src/screen/home/document/document_screen.dart';
+import 'package:b_sims/src/screen/home/home_screen.dart';
 import 'package:b_sims/src/widget/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +26,13 @@ class MyApp extends StatelessWidget with CustomClass {
       title: 'B Sims',
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      home: const Root(),
+      // home: const Root(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Root(),
+        '/home': (context) => const HomeScreen(),
+        '/document': (context) => const DocumentScreen(),
+      },
     );
   }
 }

@@ -9,7 +9,7 @@ const List<String> homeCarouselSlider = [
   'assets/images/home_3.png',
 ];
 
-const List<String> kListTableKepelabuhan = [
+const List<String> kListHeaderTableKepelabuhan = [
   "Tgl. Rgistrasi",
   "Tgl. Submit",
   "Tgl. Proses",
@@ -19,7 +19,29 @@ const List<String> kListTableKepelabuhan = [
   "Terminal",
 ];
 
-const List<String> kListTablePUK = [
+const List<String> kListHeaderTableJasa = [
+  "PKK",
+  "PUK",
+  "Kapal",
+  "Jasa Pelabuhan",
+  "Status",
+];
+
+const List<String> kListHeaderTablePuk = [
+  "Action",
+  "PKK",
+  "PUK",
+  "Kapal",
+  "Terminal",
+  "Pelabuhan Asal",
+  "Pelabuhan Tujuan",
+  "Tgl. Kedatangan",
+  "Tgl. Keberangkatan",
+  "Submit status",
+  "PUK status",
+];
+
+const List<String> kListHeaderPencarianTablePUK = [
   "Action",
   "Nomor PKK",
   "Nomor PUK",
@@ -27,7 +49,15 @@ const List<String> kListTablePUK = [
   "Status",
 ];
 
-const List<String> kListTableDokumenKepelabuhan = [
+const List<String> kListHeaderTableUploadDocument = [
+  "Action",
+  "File name",
+  "File type",
+  "Upload by",
+  "Upload at",
+];
+
+const List<String> kListTableHeaderDokumenKepelabuhan = [
   "Id",
   "Jenis",
   "Pelabuhan",

@@ -1,28 +1,40 @@
-import 'package:b_sims/src/config/const.dart';
-import 'package:b_sims/src/screen/home/document/search_document_screen.dart';
-import 'package:b_sims/src/widget/list_table.dart';
+import 'package:b_sims/src/screen/home/document/kedatangan/list_table_kedatangan.dart';
+import 'package:b_sims/src/screen/home/document/kepelabuhan/search_kepelabuhan_screen.dart';
 import 'package:flutter/material.dart';
 
-class ListDocumentScreen extends StatefulWidget {
-  const ListDocumentScreen({Key? key}) : super(key: key);
+class ListDocumentKedatangan extends StatelessWidget {
+  const ListDocumentKedatangan({Key? key}) : super(key: key);
 
-  @override
-  State<ListDocumentScreen> createState() => _ListDocumentScreenState();
-}
-
-class _ListDocumentScreenState extends State<ListDocumentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dokumen kepelabuhan"),
+        title: const Text("List dokumen PUK"),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(
-              height: 20,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              child: Row(
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    label: const Text("Download"),
+                    icon: const Icon(Icons.download),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    label: const Text("Sinkron data PUK"),
+                    icon: const Icon(Icons.sync),
+                    style: ElevatedButton.styleFrom(primary: Colors.green),
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -36,7 +48,7 @@ class _ListDocumentScreenState extends State<ListDocumentScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SearchDocumentScreen(),
+                      builder: (context) => const SearchDocumentKepelabuhan(),
                     ),
                   ),
                   borderRadius: BorderRadius.circular(8.0),
@@ -58,7 +70,7 @@ class _ListDocumentScreenState extends State<ListDocumentScreen> {
             ),
             const Padding(
               padding: EdgeInsets.all(20),
-              child: ListTableDocument(),
+              child: ListTableKedatangan(),
             ),
           ],
         ),

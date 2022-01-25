@@ -1,14 +1,19 @@
-import 'package:b_sims/src/widget/list_table.dart';
+import 'dart:developer';
+
+import 'package:b_sims/src/root.dart';
+import 'package:b_sims/src/screen/home/document/document_screen.dart';
+import 'package:b_sims/src/screen/home/document/kepelabuhan/list_table_document_kepelabuhan.dart';
 import 'package:flutter/material.dart';
 
-class SearchDocumentScreen extends StatefulWidget {
-  const SearchDocumentScreen({Key? key}) : super(key: key);
+class SearchDocumentKepelabuhan extends StatefulWidget {
+  const SearchDocumentKepelabuhan({Key? key}) : super(key: key);
 
   @override
-  State<SearchDocumentScreen> createState() => _SearchDocumentScreenState();
+  _SearchDocumentKepelabuhanState createState() =>
+      _SearchDocumentKepelabuhanState();
 }
 
-class _SearchDocumentScreenState extends State<SearchDocumentScreen> {
+class _SearchDocumentKepelabuhanState extends State<SearchDocumentKepelabuhan> {
   bool _tapCari = false;
 
   final List<String> _listCari = [
@@ -120,13 +125,19 @@ class _SearchDocumentScreenState extends State<SearchDocumentScreen> {
                   onPressed: () => setState(() {
                     _tapCari = true;
                   }),
+                  // onPressed: () {
+                  //   int count = 0;
+                  //   Navigator.popUntil(context, (route) {
+                  //     return count++ == 2;
+                  //   });
+                  // },
                   label: const Text("Cari"),
                   icon: const Icon(Icons.search),
                 ),
               ),
               Offstage(
                 offstage: !_tapCari,
-                child: const ListTableDocument(),
+                child: const ListTableKepelabuhan(),
               ),
               const SizedBox(
                 height: 20,
