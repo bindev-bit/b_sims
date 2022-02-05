@@ -15,10 +15,10 @@ class Jasa {
 
 List<Jasa> kListJasa = [
   Jasa(
-    puk: "213123",
+    puk: "220001564/BM",
     pkk: "21222",
-    kapal: "kapal",
-    jasa: "jasa",
-    status: "status",
+    kapal: "TOLL EMPEROR, LCT",
+    jasa: "Jasa Pandu",
+    status: "Verifikasi oleh PPAT",
   ),
 ];

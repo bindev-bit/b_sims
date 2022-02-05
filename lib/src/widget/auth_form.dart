@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AuthFormField extends StatefulWidget {
+  final TextEditingController? controller;
   final String title, hint;
   final bool password;
   const AuthFormField(this.title,
-      {required this.hint, this.password = false, Key? key})
+      {required this.hint, this.controller, this.password = false, Key? key})
       : super(key: key);
 
   @override
@@ -16,10 +17,11 @@ class _AuthFormFieldState extends State<AuthFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       textInputAction:
           widget.password ? TextInputAction.done : TextInputAction.next,
       cursorColor: Colors.white,
-      obscureText: _showPassword,
+      obscureText: widget.password ? !_showPassword : false,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         label: Text(widget.title),
@@ -34,8 +36,8 @@ class _AuthFormFieldState extends State<AuthFormField> {
                   });
                 },
                 icon: Icon(
-                  _showPassword ? Icons.visibility_off : Icons.visibility,
-                  color: _showPassword ? Colors.white60 : Colors.white,
+                  _showPassword ? Icons.visibility : Icons.visibility_off,
+                  color: _showPassword ? Colors.white : Colors.white60,
                 ),
               )
             : null,

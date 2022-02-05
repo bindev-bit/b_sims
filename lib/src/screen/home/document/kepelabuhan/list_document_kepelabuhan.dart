@@ -1,5 +1,5 @@
+import 'package:b_sims/src/screen/home/document/document_search_screen.dart';
 import 'package:b_sims/src/screen/home/document/kepelabuhan/list_table_document_kepelabuhan.dart';
-import 'package:b_sims/src/screen/home/document/kepelabuhan/search_kepelabuhan_screen.dart';
 import 'package:flutter/material.dart';
 
 class ListDocumentKepelabuhan extends StatefulWidget {
@@ -36,7 +36,7 @@ class _ListDocumentKepelabuhanState extends State<ListDocumentKepelabuhan> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SearchDocumentKepelabuhan(),
+                      builder: (context) => const SearchDocumentScreen(),
                     ),
                   ),
                   borderRadius: BorderRadius.circular(8.0),

@@ -1,6 +1,4 @@
 import 'package:b_sims/src/screen/home/document/kedatangan/list_document_kedatangan.dart';
-import 'package:b_sims/src/screen/home/document/kepelabuhan/list_document_kepelabuhan.dart';
-import 'package:b_sims/src/screen/home/document/kepelabuhan/list_table_document_kepelabuhan.dart';
 import 'package:b_sims/src/widget/custom_card.dart';
 import 'package:flutter/material.dart';
 

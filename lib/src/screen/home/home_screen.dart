@@ -1,4 +1,5 @@
 import 'package:b_sims/src/config/const.dart';
+import 'package:b_sims/src/config/getx/auth_getx.dart';
 import 'package:b_sims/src/config/getx/onboarding_getx.dart';
 import 'package:b_sims/src/screen/home/company/company_screen.dart';
 import 'package:b_sims/src/screen/home/contact/contact_screen.dart';
@@ -22,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   final OnBoardingController onBoardingController = Get.find();
+  final AuthController authController = Get.find();
   int _currentIndex = 0;
 
   final List<Widget> _listScreen = const [
@@ -134,12 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: const Text("Beranda"),
                 ),
                 ListTile(
-                  onTap: () => Get.to(const Document()),
+                  onTap: () => Get.to(const KedatanganScreen()),
                   leading: const Icon(Icons.file_copy),
                   title: const Text("Daftar Permohonan PKK"),
                 ),
                 ListTile(
-                  onTap: () => Get.to(const DocumentScreen()),
+                  onTap: () => Get.to(const Document()),
                   leading: const Icon(Icons.file_copy),
                   title: const Text("Dokumen kepelabuhan"),
                 ),
@@ -160,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            onBoardingController.firstBuildScreen();
+                            authController.logOut();
                             Navigator.pop(context);
                           },
                           child: const Text("Keluar"),

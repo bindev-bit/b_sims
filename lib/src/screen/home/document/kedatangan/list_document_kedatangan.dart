@@ -1,6 +1,7 @@
 import 'package:b_sims/src/screen/home/document/kedatangan/list_table_kedatangan.dart';
-import 'package:b_sims/src/screen/home/document/kepelabuhan/search_kepelabuhan_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../document_search_screen.dart';
 
 class ListDocumentKedatangan extends StatelessWidget {
   const ListDocumentKedatangan({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class ListDocumentKedatangan extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SearchDocumentKepelabuhan(),
+                      builder: (context) => const SearchDocumentScreen(),
                     ),
                   ),
                   borderRadius: BorderRadius.circular(8.0),

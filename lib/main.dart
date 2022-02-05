@@ -22,17 +22,11 @@ class MyApp extends StatelessWidget with CustomClass {
   Widget build(BuildContext context) {
     setStatusBar();
     return GetMaterialApp(
-      initialBinding: OnBoardingBindings(),
+      initialBinding: AppBindings(),
       title: 'B Sims',
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      // home: const Root(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Root(),
-        '/home': (context) => const HomeScreen(),
-        '/document': (context) => const DocumentScreen(),
-      },
+      home: const Root(),
     );
   }
 }

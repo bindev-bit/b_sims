@@ -18,6 +18,7 @@ dependencies:
   curved_navigation_bar: ^1.0.1
   google_fonts: ^2.2.0
   animations: ^2.0.2
+  url_launcher: ^6.0.18
 
 dev_dependencies:
   flutter_test:

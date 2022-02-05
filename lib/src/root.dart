@@ -1,3 +1,4 @@
+import 'package:b_sims/src/config/getx/auth_getx.dart';
 import 'package:b_sims/src/screen/home/home_screen.dart';
 import 'package:b_sims/src/screen/splash/splash_screen.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,7 +11,7 @@ class Root extends GetWidget<OnBoardingController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Get.find<OnBoardingController>().firstBuild.value
+      () => Get.find<AuthController>().isLogin.value
           ? const HomeScreen()
           : const SplashScreen(),
     );

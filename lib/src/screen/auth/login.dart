@@ -1,15 +1,16 @@
+import 'package:b_sims/src/config/getx/auth_getx.dart';
 import 'package:b_sims/src/config/getx/onboarding_getx.dart';
 import 'package:b_sims/src/screen/auth/auth_helper.dart';
 import 'package:b_sims/src/widget/auth_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../root.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
   final OnBoardingController onBoardingController = Get.find();
+  final AuthController authController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,19 @@ class LoginScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const AuthFormField('Email', hint: 'john@gmail.com'),
+          AuthFormField(
+            'Email',
+            hint: 'john@gmail.com',
+            controller: authController.emailController.value,
+          ),
           const SizedBox(
             height: 20,
           ),
-          const AuthFormField(
+          AuthFormField(
             'Password',
             hint: 'john@gmail.com',
             password: true,
+            controller: authController.passwordController.value,
           ),
           Align(
             alignment: Alignment.centerRight,
@@ -54,11 +60,22 @@ class LoginScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () async {
-              onBoardingController.removeFirstBuild();
-              Get.to(const Root());
+              authController.login();
+              // Get.to(const Root());
             },
             child: const Text("Masuk"),
           ),
+          TextButton(
+            onPressed: () async {
+              if (!await launch("https://devb-sims.bpbatam.go.id/")) {
+                throw 'Could not launch https://devb-sims.bpbatam.go.id/';
+              }
+            },
+            child: const Text(
+              "Forgot password ?",
+              style: TextStyle(color: Colors.white),
+            ),
+          )
         ],
       ),
     );

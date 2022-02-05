@@ -1,7 +1,3 @@
-import 'dart:developer';
-
-import 'package:b_sims/src/root.dart';
-import 'package:b_sims/src/screen/home/document/document_screen.dart';
 import 'package:b_sims/src/screen/home/document/kepelabuhan/list_table_document_kepelabuhan.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +24,7 @@ class _SearchDocumentKepelabuhanState extends State<SearchDocumentKepelabuhan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dokumen kepelabuhan"),
+        title: const Text("Jasa Pelabuhan"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),

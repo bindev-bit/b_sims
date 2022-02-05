@@ -28,15 +28,15 @@ class PUKModel {
 
 List<PUKModel> kListPuk = [
   PUKModel(
-    noPKK: "noPKK",
-    noPuk: "noPuk",
-    namaKapal: "namaKapal",
-    terminal: "terminal",
-    pelabuhanAsal: "pelabuhanAsal",
-    pelabuhanTujuan: "pelabuhanTujuan",
-    tglKedatangan: "tglKedatangan",
-    tglKeberangkatan: "tglKeberangkatan",
-    submitStatus: "submitStatus",
+    noPKK: "PKK.LN.IDBTM.2010.000220",
+    noPuk: "2021060068 / 210009137/BM",
+    namaKapal: "TOLL EMPEROR, LCT",
+    terminal: "Terminal Umum Roro Sekupang (Gerakan ke-1)",
+    pelabuhanAsal: "singapore",
+    pelabuhanTujuan: "BATAM",
+    tglKedatangan: "23-06-2021 00:00:00",
+    tglKeberangkatan: "30-06-2021 00:00:00",
+    submitStatus: "submitted",
     pukStatus: "pukStatus",
   ),
 ];
